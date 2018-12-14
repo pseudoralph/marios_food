@@ -1,8 +1,4 @@
-hi there
-
-
-
-<%= form_for @review do |f| %>
+<%= form_with(model: @review, url: product_reviews_path) do |f| %>
   <div class="form-group">
     <%= f.label :author %>
     <%= f.text_field :author, class: "form-control" %>
