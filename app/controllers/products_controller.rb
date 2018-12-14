@@ -34,24 +34,23 @@ class ProductsController < ApplicationController
       flash[:notice] = "Problem updating product"
       render :edit
     end
-
   end
 
   def destroy
     @product.delete
     redirect_to products_path
+  end
 
+  def featured
   end
 
   private
-    def get_product
-      @product = Product.find(params[:id])
-    end
+  def get_product
+    @product = Product.find(params[:id])
+  end
 
-    def params_permit
-      params.require(:product).permit(:name, :country_origin, :cost)
-    end
-
-
+  def params_permit
+    params.require(:product).permit(:name, :country_origin, :cost)
+  end
 
 end
