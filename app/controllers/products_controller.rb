@@ -8,8 +8,10 @@ class ProductsController < ApplicationController
   def create
     @product = Product.new(params_permit)
     if @product.save
+      flash[:notice] = "Product successfully added"
       redirect_to products_path
     else
+      flash[:notice] = "Problem adding product"
       render :new
     end
   end
@@ -25,9 +27,20 @@ class ProductsController < ApplicationController
   end
 
   def update
+    if @product.update(params_permit)
+      flash[:notice] = "Product successfully updated"
+      redirect_to products_path
+    else
+      flash[:notice] = "Problem updating product"
+      render :edit
+    end
+
   end
 
   def destroy
+    @product.delete
+    redirect_to products_path
+
   end
 
   private
