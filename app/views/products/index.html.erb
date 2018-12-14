@@ -24,7 +24,7 @@
       <tbody>
         <% @products.each do |product| %>
         <tr>
-          <td><%= product.name %></td>
+          <td><%= link_to product.name, product_path(product) %></td>
           <td><%= product.country_origin %></td>
           <td><%= number_to_currency(product.cost, :unit => "$") %></td>
           <th><%= link_to 'Update', edit_product_path(product), class: "btn btn-secondary btn-sm float-right" %></th>
