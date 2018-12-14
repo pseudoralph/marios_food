@@ -10,31 +10,35 @@
 <% end %>
 
 <div class="row">
-  <div class="col-md-6">
-    <table class="table">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Country of Origin</th>
-          <th scope="col">Cost</th>
-          <th scope="col">&nbsp;</th>
-          <th scope="col">&nbsp;</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @products.each do |product| %>
-        <tr>
-          <td><%= link_to product.name, product_path(product) %></td>
-          <td><%= product.country_origin %></td>
-          <td><%= number_to_currency(product.cost, :unit => "$") %></td>
-          <th><%= link_to 'Update', edit_product_path(product), class: "btn btn-secondary btn-sm float-right" %></th>
-          <th><%= button_to "Delete", { action: "destroy", id: product.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-secondary btn-sm float-right" %></th>
-        </tr>
-        <% end %>
-      </tbody>
-    </table>
 
+  <% @products.each do |product| %>
+
+  <div class="card" style="margin: .9rem; width: 18rem;">
+    <div class="card-header">
+      <h5><%= link_to product.name, product_path(product) %></h5>
+    </div>
+    <div class="card-body" style="padding: 1rem;">
+      <table class="table" style="margin-bottom: 2rem;">
+        <thead class="thead">
+          <tr>
+            <th scope="col" style="border: 0; padding: .2rem .5rem .5rem;">Country of Origin</th>
+            <th scope="col" style="border: 0; padding: .2rem .5rem .5rem;">Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 0; padding: .2rem .5rem .5rem;"><%= product.country_origin %></td>
+            <td style="border: 0; padding: .2rem .5rem .5rem;"><%= number_to_currency(product.cost, :unit => "$") %></td>
+          </tr>
+        </tbody>
+      </table>
+      <%= link_to 'Update', edit_product_path(product), class: "btn btn-secondary btn-sm float-left" %>
+      <%= button_to "Delete", { action: "destroy", id: product.id }, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-secondary btn-sm float-right" %>
+    </div>
   </div>
+
+  <% end %>
+
 </div>
 
 
