@@ -13,6 +13,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.1.3'
+# gem 'country_select', '~> 3.1'
+gem 'city-state', '~> 0.0.13'
 
 
 group :development, :test do
