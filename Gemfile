@@ -12,7 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'jquery-rails'
-gem 'bootstrap-sass', '~> 3.4.0'
+gem 'bootstrap', '~> 4.1.3'
 
 
 group :development, :test do
