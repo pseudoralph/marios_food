@@ -1,1 +1,73 @@
-i'm featured
+
+<h3>Shop confident</h3>
+<p>These are the three highest-ranked products we proudly offer.</p>
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        1
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        1
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        1
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Shop fresh</h3>
+<p>These are our three newest products.</p>
+<div class="row">
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        1
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        1
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        1
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Shop Local</h3>
+<p>These items are manufactured right here in the good 'ole U.S. of A.</p>
+
+<div class="row">
+  <% @products.made_in_usa.each do |product| %>
+  <div class="col-md-3 mx-auto">
+    <div class="card">
+      <div class="card-body">
+        <%= product.name %>
+      </div>
+    </div>
+  </div>
+
+  <% end %>
+
+</div>
