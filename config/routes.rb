@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   end
 
   get '/featured', to: 'products#featured'
+
+  root 'products#index'
 end
