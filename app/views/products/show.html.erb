@@ -36,9 +36,7 @@
     <ul>
       <% @product.reviews.each do |review| %>
       <li>
-        <% review.rating.to_i.times do %>
-        ⭐
-        <% end %>
+        <% review.rating.to_i.times do %>⭐<% end %>
       </li>
       <li><%= review.content_body %> left by <%= review.author %></li>
       <% end %>

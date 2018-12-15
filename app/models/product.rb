@@ -3,5 +3,4 @@ class Product < ActiveRecord::Base
   validates :cost, numericality: true
   has_many :reviews, dependent: :destroy
 
-
 end

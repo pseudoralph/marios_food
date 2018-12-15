@@ -2,30 +2,22 @@ class ReviewsController < ApplicationController
   before_action :get_product
 
   def new
-    # @product = Product.find(params[:product_id].to_i)
     @review = @product.reviews.new
-
   end
 
   def create
+  binding.pry
     if @review = @product.reviews.create(permit_params)
       redirect_to product_path(@product)
     else
       render :new
     end
-    # binding.pry
-  end
-
-  def new
   end
 
   def edit
   end
 
   def show
-  end
-
-  def update
   end
 
   def update
@@ -40,10 +32,9 @@ class ReviewsController < ApplicationController
   end
 
   def permit_params
-    params.permit(:author, :content_body, :rating, :product_id)
+    params[:review][:product_id]=params[:product_id]
+    params.require(:review).permit(:author, :content_body, :rating, :product_id)
   end
-
-
 
 
 end
