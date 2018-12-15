@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_224301) do
+ActiveRecord::Schema.define(version: 2018_12_15_182259) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,5 +30,5 @@ ActiveRecord::Schema.define(version: 2018_12_14_224301) do
     t.integer "rating"
   end
 
-  add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "products", on_delete: :cascade
 end

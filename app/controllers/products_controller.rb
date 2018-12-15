@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :get_product, only: [:edit, :show, :update, :destroy]
+  before_action :get_product, only: [:edit, :show, :update]
 
   def index
     @products = Product.all
@@ -37,7 +37,11 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    @product.delete
+    # binding.pry
+    params.permit(:id)
+    Product.find(params[:id].to_i).delete
+
+    # @product.delete
     redirect_to products_path
   end
 
