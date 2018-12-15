@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   end
 
   get '/featured', to: 'products#featured'
+  get '/seed', to: 'products#seed'
+
 
   root 'products#index'
 end

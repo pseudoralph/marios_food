@@ -37,15 +37,21 @@ class ProductsController < ApplicationController
   end
 
   def destroy
-    # binding.pry
     params.permit(:id)
     Product.find(params[:id].to_i).delete
 
-    # @product.delete
     redirect_to products_path
   end
 
   def featured
+  end
+
+  def seed
+    seed_db(params[:seed_with].to_i)
+
+  binding.pry
+    @products = Product.all
+    render :index
   end
 
   private
@@ -55,6 +61,15 @@ class ProductsController < ApplicationController
 
   def params_permit
     params.require(:product).permit(:name, :country_origin, :cost)
+  end
+
+  def seed_db(how_many)
+    how_many.times do
+      Product.create!(
+          name: Faker::Food.ingredient,
+          country_origin: (CS.countries.map {|key, value| value}).sample,
+          cost: rand(0.24...33.23))
+      end
   end
 
 end

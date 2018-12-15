@@ -1,4 +1,23 @@
-<h3>Products</h3>
+<div class="row" >
+  <div class="col-md-12" style="margin: 2rem 0rem;">
+    <h3 style="display: inline-block; margin-right:2rem !important;">Products</h3>
+    <%= link_to 'Add product', new_product_path, class: 'btn btn-success' %>
+
+    <div class="float-right" style="display: inline-block;">
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#seed_database">
+        seed db
+      </button>
+
+      <button type="button" class="btn btn-primary btn-sm" data-toggle="modal">
+        delete db
+      </button>
+
+
+    </div>
+
+  </div>
+
+</div>
 
 <% if flash[:notice] %>
   <div class="notice alert alert-primary alert-dismissible fade show" role="alert">
@@ -41,9 +60,30 @@
 
 </div>
 
+<!-- Modal -->
+<div class="modal fade" id="seed_database" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <%= form_with(url: "/seed", method: "get") do %>
+      <div class="modal-header">
 
+        <h5 class="modal-title" id="seed_databaseLabel">Seed the database with random products</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
 
+      </div>
+      <div class="modal-body">
 
+        <%= label_tag(:seed_with, "How many ") %>
+        <%= text_field_tag(:seed_with) %>
 
+      </div>
+      <div class="modal-footer">
+        <%= submit_tag "Seed", class: "btn btn-success"  %>
+      </div>
 
-<%= link_to 'Add product', new_product_path %>
+      <% end %>
+    </div>
+  </div>
+</div>

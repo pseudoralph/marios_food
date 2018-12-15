@@ -6,7 +6,6 @@ class ReviewsController < ApplicationController
   end
 
   def create
-  binding.pry
     if @review = @product.reviews.create(permit_params)
       redirect_to product_path(@product)
     else
